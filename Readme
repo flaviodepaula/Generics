@@ -1,0 +1,12 @@
+dotnet 7.0
+
+This example shows how to use generics + reflection in c#;
+
+Using generics, I'm creating a class to return informations about a any class (T) passed as parameter.
+public static class ClasseHelper<T> where T : class
+
+Using reflection, I'm taking all informations about a specific method...
+var method = ClasseHelper<PrintOnScreen>.GetMethod("writeanytext");
+
+...and then execition this method using .Invoke()
+method.Invoke(printName, new object[] { "running method by reflection!" });
